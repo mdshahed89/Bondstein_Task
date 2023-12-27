@@ -1,0 +1,217 @@
+*{
+    padding: 0; margin: 0; box-sizing: border-box;
+    text-decoration: none; list-style: none;
+    text-transform: capitalize;
+}
+
+html{
+    font-size: 80%;
+    overflow-x: hidden;
+}
+
+body{
+    width: 100%; height: 100%;
+}
+
+.home{
+    /* background-color: blue; */
+    
+    position: relative;
+    width: 100vw; height: 100vh;
+    background-image: url(imgs/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    .header{
+        width: 100%;
+        position: absolute;
+        /* background: yellow; */
+        padding: 1rem 3%;
+        .nav{
+            display: flex; align-items: center; justify-content: space-between;
+            .logo{
+                max-width: 15rem;
+                min-width: 10rem;
+                /* background: red; */
+                & img{
+                    object-fit: cover !important;
+                    /* height: 4.5rem;  */
+                    width: 100%;
+                   
+                    color: #fff;
+                }
+            }
+            .navItems{
+                /* display: none; */
+                /* background: red; */
+                & ul{
+                    /* display: flex;
+                    align-items: center; gap: 2rem; */
+                    & li{
+                        position: relative;
+                        height: 100%;
+                        padding: 1rem .5rem;
+                        cursor: pointer;
+                        /* background: red; */
+                        display: inline;
+                        margin-right: 1rem;
+                        & a{
+                            position: relative;
+                            font-size: 1.5rem;
+                            color: #000;
+                            font-weight: 600;
+                            &::before{
+                                content: '';
+                                position: absolute;
+                                width: 0;
+                                height: .2rem;
+                                background: #000;
+                                top: 100%;
+                                transition: .4s ease-in-out;
+                                margin-top: .5rem;
+                            }
+                        }
+                        &:hover{
+                            & a{
+                                &::before{
+                                
+                                    width: 100%;
+                                    
+                                }
+                            }
+                        }
+                        .subItems{
+                            margin-top: 2rem;
+                            min-width: 20rem;
+                            position: absolute;
+                            background: #2c2c2c;
+                            padding: 2rem 1rem;
+                            display: flex; justify-content: center; align-items: left;
+                            flex-direction: column; gap: 1rem;
+                            left: 0;
+                            clip-path: polygon(0 0, 100% 0, 100% 0, 1% 0);
+                            transition: .4s ease-in-out;
+                            &::before{
+                                display: none;
+                            }
+                            & h4{
+                                color: #dad7d7;
+                                font-size: 1.2rem;
+                                display: block;
+                                cursor: pointer;
+                                transition: .3s ease-in-out;
+                                &:hover{
+                                    color: #f0de42;
+                                }
+                            }
+                        }
+                        &:hover{
+                            .subItems{
+                                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                            }
+                        }
+                    }
+
+                }
+            }
+            .btns{
+                /* background: red; */
+                display: flex; gap: 2rem;
+                & i{
+                    font-size: 1.8rem;
+                    cursor: pointer;
+                }
+                .src{
+                    display: flex; align-items: center;
+                    position: relative;
+                    & input{
+                        position: absolute;
+                        width: 0;
+                        padding: 0 .5rem;
+                        border: none;
+                        outline: none;
+                        background: transparent;
+                        border-bottom: .2rem solid #000;
+                        color: #000000;
+                        font-size: 1.3rem; font-weight: 600;
+                        margin-right: 1rem;
+                        text-transform: none;
+                        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+                        transition: .3s ease-in-out;
+                        right: 0;
+                        top: 100%;
+                    }
+                    .src-input.act{
+                        
+                            clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+                            width: 15rem;
+                        
+                    }
+                }
+                .bar{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1200px) {
+    html{
+        font-size: 63.5%;
+    }
+  }
+
+  @media only screen and (max-width: 950px) {
+    .home{
+        /* z-index: -1; */
+        .header{
+            background: #fff;
+            .nav{
+                .navItems{
+                    position: absolute;
+                    top: 100%;
+                    width: 100%;
+                    background: #fff;
+                    left: 0;
+                    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                    transition: .4s ease-in-out;
+                    
+                    & ul{
+                        & li{
+                            display: block;
+                            padding: 2rem;
+                            & a{
+                                font-size: 1.8rem;
+                                &::before{
+                                    display: none;
+                                }
+                                &:hover{
+                                    color: #f0de42;
+                                }
+                            }
+                            &:hover{
+                                background-color: #c5c4c4;
+                            }
+                            .subItems{
+                                /* clip-path: polygon(20% 0%, 80% 0%, 100% 0, 0 0); */
+                                margin-left: 18rem;
+                                z-index: 100000;
+                            }
+                        }
+                    }
+                    &.active{
+                        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                    }
+                }
+                .btns{
+                    .bar{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+  }
